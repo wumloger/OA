@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mainpage</title>
+    <!-- Import style -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3"></script>
+    <!-- Import component library -->
+    <script src="//unpkg.com/element-plus"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        header{
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+        }
+        h3,header div,.exit{
+            display: inline-block;
+            position: absolute;
+        }
+        .exit{
+            padding: 10px;
+            right: 10px;
+        }
+        div{
+            right: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <header>
+        <h3>{{ emp.empName }}</h3>
+        <div>
+            <el-avatar
+                   v-bind:src="emp.empImg"
+            />
+        </div>
+        <el-button type="danger" class="exit" plain v-on:click="exit()">退出</el-button>
+    </header>
+</div>
+
+<script>
+    const Main = {
+        data() {
+            return {
+                emp: {
+                    empName:'',
+                    empImg:''
+                }
+
+            }
+        },
+        mounted(){
+            let eid = sessionStorage.getItem("eid")
+            axios.get("/emp?eid=" + eid).then((res)=>{
+                let result = res.data;
+                console.log(result);
+                this.emp.empName = result.data.name;
+                console.log(this.emp.empName);
+                this.emp.empImg = result.data.img;
+                console.log(this.emp.empImg)
+            });
+        },
+
+        methods: {
+            exit(){
+                sessionStorage.clear();
+                window.location.href='/login.html';
+            }
+        }
+    }
+
+    const app = Vue.createApp(Main)
+    app.use(ElementPlus)
+    app.mount('#app')
+</script>
+</body>
+</html>
