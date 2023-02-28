@@ -26,6 +26,7 @@
         <mapper resource="mappers/TestMapper.xml"></mapper>
         <mapper resource="mappers/UserMapper.xml"></mapper>
         <mapper resource="mappers/EmployeeMapper.xml"></mapper>
+        <mapper resource="mappers/NodeMapper.xml"></mapper>
     </mappers>
 </configuration>
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.wuml.oa.mapper.NodeMapper">
+    <select id="selectNodeByUId" parameterType="Long" resultType="top.wuml.oa.entity.Node">
+        select sn.*
+        from sys_node sn,sys_role_user slu,sys_role_node srn
+        where sn.node_id = srn.node_id
+        and slu.role_id = srn.role_id
+        and slu.user_id = #{uid};
+    </select>
+</mapper>

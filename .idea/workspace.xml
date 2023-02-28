@@ -9,7 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a6a3ca1-bdce-4de0-a49b-ccfd80c81074" name="变更" comment="" />
+    <list default="true" id="8a6a3ca1-bdce-4de0-a49b-ccfd80c81074" name="变更" comment="2023-2-27">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/controller/NodeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/NodeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/NodeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/NodeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/audit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/leave_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/notice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/NodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -57,7 +71,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2MIpX7Miz1VLf9suIyJkpszFQu8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
@@ -67,6 +83,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="模块" />
@@ -76,11 +93,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaWorkspace\OA\src\main\resources" />
       <recent name="D:\ideaWorkspace\OA\src\main\webapp" />
       <recent name="D:\ideaWorkspace\OA\src\main\resources\mappers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeTest.testGetEmp">
+  <component name="RunManager" selected="JUnit.NodeTest.testSelectNodeByUid">
     <configuration name="EmployeeTest.testGetEmp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OA" />
       <option name="PACKAGE_NAME" value="" />
@@ -106,6 +124,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MyBatisUtilsTest" />
       <option name="METHOD_NAME" value="testCase2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NodeTest.testSelectNodeByUid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NodeTest" />
+      <option name="METHOD_NAME" value="testSelectNodeByUid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,6 +227,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NodeTest.testSelectNodeByUid" />
         <item itemvalue="JUnit.EmployeeTest.testGetEmp" />
         <item itemvalue="JUnit.MyBatisUtilsTest.testCase2" />
         <item itemvalue="JUnit.MyBatisUtilsTest.testCase1" />
@@ -216,8 +245,19 @@
       <workItem from="1677464991975" duration="5112000" />
       <workItem from="1677475289808" duration="12298000" />
       <workItem from="1677492737581" duration="8800000" />
-      <workItem from="1677502308530" duration="246000" />
+      <workItem from="1677502308530" duration="474000" />
+      <workItem from="1677508479502" duration="104000" />
+      <workItem from="1677567417676" duration="8084000" />
+      <workItem from="1677579340705" duration="4306000" />
     </task>
+    <task id="LOCAL-00001" summary="2023-2-27">
+      <created>1677502809110</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677502809110</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +273,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2023-2-27" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-2-27" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
