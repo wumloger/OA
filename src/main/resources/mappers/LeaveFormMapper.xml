@@ -7,6 +7,21 @@ useGeneratedKeys="true" keyProperty="formId" keyColumn="form_id">
     VALUES (#{employeeId}, #{formType}, #{startTime}, #{endTime}, #{reason}, #{createTime}, #{state});
 
 </insert>
+    <update id="update" parameterType="top.wuml.oa.entity.LeaveForm">
+        UPDATE adm_leave_form
+        SET `employee_id` = #{employeeId},
+            `form_type` = #{formType},
+            `start_time` = #{startTime},
+            `end_time` = #{endTime},
+            `reason` = #{reason},
+            `create_time` = #{createTime},
+            `state` = #{state}
+        WHERE `form_id` = #{formId};
+    </update>
+    <select id="selectById" resultType="top.wuml.oa.entity.LeaveForm" parameterType="Long">
+        select * from adm_leave_form
+        where form_id = #{formId};
+    </select>
 
 
 </mapper>

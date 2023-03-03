@@ -16,7 +16,7 @@ class NoticeMapperTest {
     void insert() {
         Notice notice = new Notice();
         notice.setCreateTime(new Date());
-        notice.setContent("aaaaaaa");
+        notice.setContent("ccccccc");
         notice.setReceiverId(5L);
 
         MybatisUtils.executeUpdate(sqlSession -> {

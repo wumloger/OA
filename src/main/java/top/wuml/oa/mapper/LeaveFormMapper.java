@@ -6,4 +6,6 @@ import top.wuml.oa.util.MybatisUtils;
 public interface LeaveFormMapper {
     void insert(LeaveForm leaveForm);
 
+    void update(LeaveForm form);
+    LeaveForm selectById(Long formId);
 }
