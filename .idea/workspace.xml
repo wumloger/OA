@@ -9,20 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a6a3ca1-bdce-4de0-a49b-ccfd80c81074" name="变更" comment="2023-2-27">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/controller/NodeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/NodeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/NodeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/NodeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/audit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/leave_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/notice.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/NodeTest.java" afterDir="false" />
+    <list default="true" id="8a6a3ca1-bdce-4de0-a49b-ccfd80c81074" name="变更" comment="2023-2-28&#10;通过权限显示界面">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/controller/LeaveController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/LeaveForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/ProcessFlow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/DepartmentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/LeaveFormMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/NoticeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/ProcessFlowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/LeaveService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/ProcessFlowService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/util/TimeHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/DepartmentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/LeaveFormMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/NoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/ProcessFlowMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/top/wuml/oa/mapper/DepartmentMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/top/wuml/oa/mapper/NoticeMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/top/wuml/oa/mapper/ProcessFlowMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/top/wuml/oa/service/EmployeeServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/top/wuml/oa/service/LeaveServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/mapper/EmployeeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/wuml/oa/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/EmployeeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/leave_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/leave_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EmployeeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +51,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -85,10 +105,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="模块" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
@@ -97,43 +119,89 @@
       <recent name="D:\ideaWorkspace\OA\src\main\webapp" />
       <recent name="D:\ideaWorkspace\OA\src\main\resources\mappers" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="top.wuml.oa.mapper" />
+      <recent name="top.wuml.oa.service" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.NodeTest.testSelectNodeByUid">
-    <configuration name="EmployeeTest.testGetEmp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.NoticeMapperTest.selectByReceiverId">
+    <configuration name="DepartmentMapperTest.getDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OA" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="EmployeeTest" />
-      <option name="METHOD_NAME" value="testGetEmp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.wuml.oa.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.wuml.oa.mapper" />
+      <option name="MAIN_CLASS_NAME" value="top.wuml.oa.mapper.DepartmentMapperTest" />
+      <option name="METHOD_NAME" value="getDepartment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyBatisUtilsTest.testCase1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeServiceTest.selectLeader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OA" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyBatisUtilsTest" />
-      <option name="METHOD_NAME" value="testCase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.wuml.oa.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.wuml.oa.service" />
+      <option name="MAIN_CLASS_NAME" value="top.wuml.oa.service.EmployeeServiceTest" />
+      <option name="METHOD_NAME" value="selectLeader" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyBatisUtilsTest.testCase2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LeaveServiceTest.createLeaveForm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OA" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MyBatisUtilsTest" />
-      <option name="METHOD_NAME" value="testCase2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.wuml.oa.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.wuml.oa.service" />
+      <option name="MAIN_CLASS_NAME" value="top.wuml.oa.service.LeaveServiceTest" />
+      <option name="METHOD_NAME" value="createLeaveForm" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NodeTest.testSelectNodeByUid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NoticeMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OA" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NodeTest" />
-      <option name="METHOD_NAME" value="testSelectNodeByUid" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.wuml.oa.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.wuml.oa.mapper" />
+      <option name="MAIN_CLASS_NAME" value="top.wuml.oa.mapper.NoticeMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoticeMapperTest.selectByReceiverId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.wuml.oa.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="top.wuml.oa.mapper" />
+      <option name="MAIN_CLASS_NAME" value="top.wuml.oa.mapper.NoticeMapperTest" />
+      <option name="METHOD_NAME" value="selectByReceiverId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -227,10 +295,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NodeTest.testSelectNodeByUid" />
-        <item itemvalue="JUnit.EmployeeTest.testGetEmp" />
-        <item itemvalue="JUnit.MyBatisUtilsTest.testCase2" />
-        <item itemvalue="JUnit.MyBatisUtilsTest.testCase1" />
+        <item itemvalue="JUnit.NoticeMapperTest.selectByReceiverId" />
+        <item itemvalue="JUnit.NoticeMapperTest" />
+        <item itemvalue="JUnit.DepartmentMapperTest.getDepartment" />
+        <item itemvalue="JUnit.LeaveServiceTest.createLeaveForm" />
+        <item itemvalue="JUnit.EmployeeServiceTest.selectLeader" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +317,10 @@
       <workItem from="1677502308530" duration="474000" />
       <workItem from="1677508479502" duration="104000" />
       <workItem from="1677567417676" duration="8084000" />
-      <workItem from="1677579340705" duration="4306000" />
+      <workItem from="1677579340705" duration="4671000" />
+      <workItem from="1677584416251" duration="285000" />
+      <workItem from="1677805619961" duration="21626000" />
+      <workItem from="1677837677522" duration="8393000" />
     </task>
     <task id="LOCAL-00001" summary="2023-2-27">
       <created>1677502809110</created>
@@ -257,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677502809110</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2023-2-28&#10;通过权限显示界面">
+      <created>1677583934559</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677583934559</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +355,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2023-2-27" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-2-27" />
+    <MESSAGE value="2023-2-28&#10;通过权限显示界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-2-28&#10;通过权限显示界面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,6 +365,11 @@
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/top/wuml/oa/util/MybatisUtils.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

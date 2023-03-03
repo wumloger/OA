@@ -63,7 +63,10 @@
             height: 832px;
             background-color: white;
         }
-
+        iframe{
+            height: 100%;
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -76,14 +79,14 @@
              <el-col :span="13"></el-col>
              <el-col :span="3" class="left">
                  <el-avatar
-                         v-bind:src="emp.empImg"
+                         v-bind:src="emp.img"
                  />
              </el-col>
              <el-col :span="3">
 
                  <el-dropdown>
                      <span class="el-dropdown-link">
-                        {{emp.empName}}
+                        {{emp.name}}
                     <el-icon class="el-icon--right">
                         <arrow-down />
                         </el-icon>
@@ -125,8 +128,6 @@
         data() {
             return {
                 emp: {
-                    empName:'',
-                    empImg:''
                 },
                 data: []
 
@@ -139,16 +140,17 @@
             axios.get("/emp?eid=" + eid).then((res)=>{
                 let result = res.data;
                 console.log(result);
-                this.emp.empName = result.data.name;
-                console.log(this.emp.empName);
-                this.emp.empImg = result.data.img;
-                console.log(this.emp.empImg)
+                this.emp = result.data;
+                console.log(this.emp);
+                localStorage.setItem("employee",JSON.stringify(this.emp));
+                localStorage.setItem("did",JSON.stringify(this.emp.departmentId));
             });
             axios.get("/node?uid=" + uid).then((res)=>{
                 let result = res.data;
                this.data = result.data;
                 console.log(this.data);
             });
+
 
         },
 
