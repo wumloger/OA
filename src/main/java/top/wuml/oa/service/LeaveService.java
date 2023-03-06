@@ -2,14 +2,21 @@ package top.wuml.oa.service;
 
 import top.wuml.oa.entity.Employee;
 import top.wuml.oa.entity.LeaveForm;
+import top.wuml.oa.entity.Notice;
 import top.wuml.oa.entity.ProcessFlow;
 import top.wuml.oa.mapper.EmployeeMapper;
 import top.wuml.oa.mapper.LeaveFormMapper;
+import top.wuml.oa.mapper.NoticeMapper;
 import top.wuml.oa.mapper.ProcessFlowMapper;
 import top.wuml.oa.util.MybatisUtils;
 import top.wuml.oa.util.TimeHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class LeaveService {
     private final EmployeeService employeeService = new EmployeeService();
@@ -108,6 +115,152 @@ public class LeaveService {
                     System.out.println("无此等级员工");
             }
             return form;
+        });
+    }
+    public List<Map<String,Object>> getLeaveFormList(String state,Long operatorId){
+        return (List<Map<String, Object>>) MybatisUtils.executeQuery(sqlSession -> {
+            LeaveFormMapper mapper = sqlSession.getMapper(LeaveFormMapper.class);
+            List<Map<String, Object>> map = mapper.selectByParams(state, operatorId);
+            return map;
+        });
+    }
+    public void audit(Long formId,Long operatorId,String result,String reason){
+        MybatisUtils.executeUpdate(sqlSession -> {
+            ProcessFlowMapper processFlowMapper = sqlSession.getMapper(ProcessFlowMapper.class);
+            List<ProcessFlow> flowList = processFlowMapper.selectByFormId(formId);
+            if (flowList.size() == 0){
+                System.out.println("无效的审批");
+            }
+            List<ProcessFlow> processList = flowList.stream()
+                    .filter(p -> Objects.equals(p.getOperatorId(),operatorId) && "process".equals(p.getState())).collect(Collectors.toList());
+            ProcessFlow process = null;
+            if (processList.size() == 0){
+                System.out.println("未找到待处理任务节点");
+            }else{
+                process = processList.get(0);
+                process.setState("complete");
+                process.setResult(result);
+                process.setReason(reason);
+                process.setAuditTime(new Date());
+                processFlowMapper.update(process);
+            }
+            LeaveFormMapper leaveFormMapper = sqlSession.getMapper(LeaveFormMapper.class);
+            LeaveForm form = leaveFormMapper.selectById(formId);
+
+            Employee employee = employeeService.getEmployee(form.getEmployeeId());
+            Employee operator = employeeService.getEmployee(operatorId);
+            NoticeMapper noticeMapper = sqlSession.getMapper(NoticeMapper.class);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH时");
+
+            if (process.getIsLast() == 1){
+                form.setState(result);
+                leaveFormMapper.update(form);
+                String strResult = null;
+                if ("approved".equals(result)){
+                    strResult = "批准";
+                }else if("refused".equals(result)){
+                    strResult = "驳回";
+                }
+                String notice1 = String.format("您的请假申请[%s-%s]%s%s已%s,审批意见:%s,审批流程已结束",
+                                                sdf.format(form.getStartTime()),
+                                                sdf.format(form.getEndTime()),
+                                                operator.getTitle(),
+                                                operator.getName(),
+                                                strResult,
+                                                reason);
+                Notice notice = new Notice();
+                notice.setReceiverId(form.getEmployeeId());
+                notice.setContent(notice1);
+                notice.setCreateTime(new Date());
+                noticeMapper.insert(notice);
+
+                String notice2 = String.format("%s-%s提起请假申请[%s-%s]您已%s,审批意见:%s,审批流程已结束",
+                        employee.getTitle(),
+                        employee.getName(),
+                        sdf.format(form.getStartTime()),
+                        sdf.format(form.getEndTime()),
+                        strResult,
+                        reason);
+                Notice ntc = new Notice();
+                ntc.setReceiverId(operator.getEmployeeId());
+                ntc.setContent(notice2);
+                ntc.setCreateTime(new Date());
+                noticeMapper.insert(ntc);
+
+            }else{
+                List<ProcessFlow> readyList = flowList.stream().filter(p -> "ready".equals(p.getState())).collect(Collectors.toList());
+
+                if ("approved".equals(result)){
+                    ProcessFlow readyProcess = readyList.get(0);
+                    readyProcess.setState("process");
+                    processFlowMapper.update(readyProcess);
+
+                    String notice1 = String.format("您的请假申请[%s-%s]%s%s已批准,审批意见:%s,请继续等待上级审批",
+                            sdf.format(form.getStartTime()),
+                            sdf.format(form.getEndTime()),
+                            operator.getTitle(),
+                            operator.getName(),
+                            reason);
+                    Notice notice = new Notice();
+                    notice.setReceiverId(form.getEmployeeId());
+                    notice.setContent(notice1);
+                    notice.setCreateTime(new Date());
+                    noticeMapper.insert(notice);
+                    String notice2 = String.format("%s-%s提起请假申请[%s-%s]您已批准,审批意见:%s,申请转至上级领导继续批准",
+                            employee.getTitle(),
+                            employee.getName(),
+                            sdf.format(form.getStartTime()),
+                            sdf.format(form.getEndTime()),
+                            reason);
+                    Notice ntc = new Notice();
+                    ntc.setReceiverId(operator.getEmployeeId());
+                    ntc.setContent(notice2);
+                    ntc.setCreateTime(new Date());
+                    noticeMapper.insert(ntc);
+                    String notice3 = String.format("%s-%s提起请假申请[%s-%s],请尽快审批",
+                            employee.getTitle(),
+                            employee.getName(),
+                            sdf.format(form.getStartTime()),
+                            sdf.format(form.getEndTime()));
+                    Notice ntc2 = new Notice();
+                    ntc2.setReceiverId(readyProcess.getOperatorId());
+                    ntc2.setContent(notice3);
+                    ntc2.setCreateTime(new Date());
+                    noticeMapper.insert(ntc2);
+                }else if ("refused".equals(result)){
+                    for (ProcessFlow p :readyList){
+                        p.setState("cancel");
+                        processFlowMapper.update(p);
+                    }
+                    form.setState("refused");
+                    leaveFormMapper.update(form);
+
+                    String notice1 = String.format("您的请假申请[%s-%s]%s%s已已驳回,审批意见:%s,审批流程已结束",
+                            sdf.format(form.getStartTime()),
+                            sdf.format(form.getEndTime()),
+                            operator.getTitle(),
+                            operator.getName(),
+                            reason);
+                    Notice notice = new Notice();
+                    notice.setReceiverId(form.getEmployeeId());
+                    notice.setContent(notice1);
+                    notice.setCreateTime(new Date());
+                    noticeMapper.insert(notice);
+
+                    String notice2 = String.format("%s-%s提起请假申请[%s-%s]您已驳回,审批意见:%s,审批流程已结束",
+                            employee.getTitle(),
+                            employee.getName(),
+                            sdf.format(form.getStartTime()),
+                            sdf.format(form.getEndTime()),
+                            reason);
+                    Notice ntc = new Notice();
+                    ntc.setReceiverId(operator.getEmployeeId());
+                    ntc.setContent(notice2);
+                    ntc.setCreateTime(new Date());
+                    noticeMapper.insert(ntc);
+                }
+            }
+            return null;
         });
     }
 }

@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.ResponseCache;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet("/api/leave/*")
 public class LeaveController extends HttpServlet {
@@ -31,12 +35,37 @@ public class LeaveController extends HttpServlet {
         switch (methodName){
             case "create": this.create(req,resp);break;
             case "list":
-                System.out.println("查询请假单");break;
+                this.list(req,resp);break;
             case "audit":
-                System.out.println("审批请假单");break;
+               this.audit(req,resp);break;
             default:
                 System.out.println("请求错误");    
         }
+    }
+
+    private void audit(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        String formId = req.getParameter("formId");
+        String result = req.getParameter("result");
+        String reason = req.getParameter("reason");
+        String eid = req.getParameter("eid");
+
+        leaveService.audit(Long.parseLong(formId),Long.parseLong(eid),result,reason);
+        Result success = Result.success("success");
+        String jsonString = JSONObject.toJSONString(success);
+        resp.getWriter().write(jsonString);
+    }
+
+    private void list(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        String employeeId = req.getParameter("eid");
+        List<Map<String, Object>> formList = leaveService.getLeaveFormList("process", Long.parseLong(employeeId));
+        Result success = Result.success(formList);
+        String jsonString = JSONObject.toJSONString(success);
+        resp.getWriter().write(jsonString);
+
     }
 
     private void create(HttpServletRequest req, HttpServletResponse resp) throws IOException {

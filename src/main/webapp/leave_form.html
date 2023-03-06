@@ -147,6 +147,9 @@
             let eid = sessionStorage.getItem("eid");
             let uid = sessionStorage.getItem("uid");
             let did = localStorage.getItem("did");
+            // let employee = localStorage.getItem("employee");
+            // console.log(employee)
+            // this.employee = employee;
             axios.get("/emp?eid=" + eid).then((res)=>{
                 let result = res.data;
                 console.log(result);

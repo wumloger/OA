@@ -22,6 +22,20 @@ useGeneratedKeys="true" keyProperty="formId" keyColumn="form_id">
         select * from adm_leave_form
         where form_id = #{formId};
     </select>
+    <select id="selectByParams" parameterType="java.util.Map" resultType="java.util.LinkedHashMap">
+        select f.*,e.name,d.*
+        from adm_leave_form f,adm_process_flow pf,adm_employee e,adm_department d
+        where
+        f.form_id = pf.form_id
+        and f.employee_id = e.employee_id
+        and e.department_id = d.department_id
+        <if test="state != null">
+            and pf.state = #{state}
+        </if>
+        <if test="operatorId != null">
+            and pf.operator_id = #{operatorId}
+        </if>
+    </select>
 
 
 </mapper>

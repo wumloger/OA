@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,6 +58,11 @@ class LeaveServiceTest {
         LeaveForm leaveForm = leaveService.createLeaveForm(form);
         System.out.println(leaveForm);
 
+    }
+    @Test
+    void getByParams(){
+        List<Map<String, Object>> pocessing = leaveService.getLeaveFormList("complete", 1L);
+        System.out.println(pocessing);
     }
 
 
